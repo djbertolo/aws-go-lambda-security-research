@@ -1,75 +1,23 @@
 package main
 
 import (
-	"context"
-	"encoding/json"
 	"fmt"
-	"log"
-	"os"
-	"strings"
 
 	"github.com/aws/aws-lambda-go/lambda"
-	"github.com/aws/aws-sdk-go-v2/config"
-	"github.com/aws/aws-sdk-go-v2/service/s3"
 )
 
-type Order struct {
-	OrderID string  `json:"order_id"`
-	Amount  float64 `json:"amount"`
-	Item    string  `json:"item"`
+type Request struct {
+	Name string `json:"name"`
 }
 
-var (
-	s3Client *s3.Client
-)
-
-func init() {
-	// initialize the s3 client outside of the handler
-	cfg, err := config.LoadDefaultConfig(context.TODO())
-	if err != nil {
-		log.Fatalf("unable to load SDK config, %v", err)
-	}
-
-	s3Client = s3.NewFromConfig(cfg)
+type Response struct {
+	Message string `json:"message"`
 }
 
-func uploadReceiptToS3(ctx context.Context, bucketName, key, receiptContent string) error {
-	_, err := s3Client.PutObject(ctx, &s3.PutObjectInput{
-		Bucket: &bucketName,
-		Key:    &key,
-		Body:   strings.NewReader(receiptContent),
-	})
-	if err != nil {
-		log.Printf("Failed to upload receipt to S3: %v", err)
-		return err
-	}
-	return nil
-}
-
-func handleRequest(ctx context.Context, event json.RawMessage) error {
-	var order Order
-	if err := json.Unmarshal(event, &order); err != nil {
-		log.Printf("Failed to unmarshal event: %v", err)
-		return err
-	}
-
-	bucketName := os.Getenv("RECEIPT_BUCKET")
-	if bucketName == "" {
-		log.Printf("RECEIPT_BUCKET environment variable is not set")
-		return fmt.Errorf("missing required environemnt variable RECEIPT_BUCKET")
-	}
-
-	receiptContent := fmt.Sprintf("OrderID: %s\nAmount: $%.2f\nItem:%s", order.OrderID, order.Amount, order.Item)
-	key := "receipts/" + order.OrderID + ".txt"
-
-	if err := uploadReceiptToS3(ctx, bucketName, key, receiptContent); err != nil {
-		return err
-	}
-
-	log.Printf("Successfully processed order %s and stored in S3 bucket %s", order.OrderID, bucketName)
-	return nil
+func HandleRequest(req Request) (Response, error) {
+	return Response{Message: fmt.Sprintf("Hello, %s!", req.Name)}, nil
 }
 
 func main() {
-	lambda.Start(handleRequest)
+	lambda.Start(HandleRequest)
 }

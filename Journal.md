@@ -5,13 +5,19 @@
 - [September 7<sup>th</sup> - September 13<sup>th</sup>](#september-7th---september-13th)
 
 ### August 24<sup>th</sup> - August 30<sup>th</sup>
-- August 24th:
+- August 24<sup>th</sup>:
     - Tasks Completed: 
         - Created starter Lambda function from AWS example
         - Created Journal.md to track research progress and findings
         - Read about Lambda as an AWS Service and its usecases
     - Short-Term Goals:
         - Finish reading through documentation on basic Lambda functionality
+- August 26<sup>th</sup>:
+    - Tasks Completed:
+        - Updated starter Lambda function to take json file on invocation
+    - Tools & Methods Used:
+        - NotebookLM to summarize and create audio overview for AWS Lambda for Go documentation
+    - Short-Term Goals:
 
 ### August 31<sup>st</sup> - September 6<sup>th</sup>
 
