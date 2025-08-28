@@ -17,7 +17,10 @@
         - Updated starter Lambda function to take json file on invocation
     - Tools & Methods Used:
         - NotebookLM to summarize and create audio overview for AWS Lambda for Go documentation
-    - Short-Term Goals:
+- August 27<sup>th</sup>:
+    - Tasks Completed:
+        - Updated naming schemes and layout of Lambda functions
+        - Updated README.md to include a list of Lambda functions with added concepts covered + goal of functions
 
 ### August 31<sup>st</sup> - September 6<sup>th</sup>
 
