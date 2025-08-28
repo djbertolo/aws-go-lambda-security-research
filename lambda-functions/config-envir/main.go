@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"os"
 
 	"github.com/aws/aws-lambda-go/events"
@@ -23,9 +24,14 @@ func HandleRequest(req events.APIGatewayProxyRequest) (events.APIGatewayProxyRes
 		name = "World"
 	}
 
-	body, _ := json.Marshal(Response{
+	responseBody := Response{
 		Message: greeting + ", " + name + "!",
-	})
+	}
+
+	body, err := json.Marshal(responseBody)
+	if err != nil {
+		return events.APIGatewayProxyResponse{}, fmt.Errorf("failed to marshal response: %w", err)
+	}
 
 	return events.APIGatewayProxyResponse{
 		StatusCode: 200,
