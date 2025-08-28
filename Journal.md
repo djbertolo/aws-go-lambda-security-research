@@ -23,6 +23,8 @@
         - Updated README.md to include a list of Lambda functions with added concepts covered + goal of functions
     - Current Task:
         - config-envir function
+    - Short-Term Goals:
+        - Add bash scripts to automate AWS CLI commands
 
 ### August 31<sup>st</sup> - September 6<sup>th</sup>
 
