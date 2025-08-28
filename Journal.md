@@ -21,6 +21,8 @@
     - Tasks Completed:
         - Updated naming schemes and layout of Lambda functions
         - Updated README.md to include a list of Lambda functions with added concepts covered + goal of functions
+    - Current Task:
+        - config-envir function
 
 ### August 31<sup>st</sup> - September 6<sup>th</sup>
 
