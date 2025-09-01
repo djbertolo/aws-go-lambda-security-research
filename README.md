@@ -13,3 +13,4 @@ Below is a list of the Lambda functions that were created throughout this resear
 |Hello-World|Cross-compiling go for linux, Lambda's custom runtime, Creating Lambda Execution Role with IAM, Deploying code with the AWS CLI| Compile a Go binary, package it, and deploy it as a Lambda function manually. This is the foundational skill for all subsequent exercises.
 |Processing-Input|Using Go structs for request/response bodies, Updating a function's code via the AWS CLI|Pass data into the function and receive a structured JSON response.
 |Triggering-Gateway|Manually creating an HTTP API in API Gateway, Creating an integration between the API and Lambda function, Lambda permissions for API Gateway invocation| Create a public HTTP endpoint that executes the Lambda function.
+|Config-Envir|Reading environment variables in Go, Configuring environment variables via the AWS CLI|Change function's behavior without redeploying code

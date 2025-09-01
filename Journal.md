@@ -27,5 +27,13 @@
         - Add bash scripts to automate AWS CLI commands
 
 ### August 31<sup>st</sup> - September 6<sup>th</sup>
+- August 31<sup>st</sup>:
+    - Tasks Completed:
+        - Updated proper configuration for config-envir
+        - Updated proper configuraiton for go-lambda api gateway
+    - Current Task:
+        - interact-s3
+    - Short-Term Goals:
+        -Add bash scripts to automate AWS CLI commands
 
 ### September 7<sup>th</sup> - September 13<sup>th</sup>
